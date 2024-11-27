@@ -87,11 +87,12 @@ namespace BlazorApp.Services
             {
                 return new FormResult { Succeeded = false, Error = ["Connection Error"] };
             }
-    }
+        }
 
-    public class  FormResult
-    {
-        public bool Succeeded { get; set; }
-        public string[] Error { get; set; } = [];
+        public class FormResult
+        {
+            public bool Succeeded { get; set; }
+            public string[] Error { get; set; } = [];
+        }
     }
 }
