@@ -1,0 +1,54 @@
+﻿@page "/Profile"
+
+
+@attribute [Authorize]
+
+@if (userProfile != null)
+{
+	<p><em>@massage</em></p>
+}
+else
+{
+	<h3 class="row mb-3">User Profile</h3>
+
+	<div class="row mb-3">
+		<label class="col-md-3 col-form-label">Name </label>
+		<div class="col-md-8">
+			<input class="form-control-plaintext" readonly @bind="userProfile.Name">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-md-3 col-form-label">Email</label>
+		<div class="col-md-8">
+			<input class="form-control-plaintext" readonly @bind="userProfile.Email">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-md-3 col-form-label">Phone</label>
+		<div class="col-md-8">
+			<input class="form-control-plaintext" readonly @bind="userProfile.PhoneNumber">
+		</div>
+	</div>
+
+}
+
+
+@inject HttpClient http
+@code {
+	public UserProfile? userProfile = null;
+	private string massage = "";
+
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			massage = "Loding...";
+			userProfile = await http.GetFromJsonAsync<UserProfile>("api/Account/Profile");
+		}
+		catch 
+		{
+			massage = "canot read user profile";
+		}
+	}
+
+}
