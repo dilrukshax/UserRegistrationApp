@@ -2,12 +2,14 @@
 
 ## **Project Overview**
 
-This project is a **User Registration and Login System** built using **Blazor**, **ASP.NET Core**, and **Entity Framework Core**. It allows users to register, securely store their credentials using password hashing (BCrypt), and log in with their credentials. The backend is implemented using ASP.NET Core API endpoints, while the frontend is developed using Blazor components.
+This project is a **User Registration and Login System** built using **Blazor WebAssembly**, **ASP.NET Core Identity**, **SQL Server**, and **Entity Framework Core**. It enables users to register, securely store their credentials, authenticate, and log in. The backend is developed using ASP.NET Core Web API with Identity for user management, while the frontend is built with Blazor WebAssembly to provide a seamless user experience.
 
 ### **Key Features**
 - **User Registration**: Register with a username, email, and password. Passwords are securely hashed before being stored in the database.
-- **User Login**: Validate credentials by comparing the entered password with the securely hashed password in the database.
-- **Data Access**: Leverages Entity Framework Core for seamless database interactions and management of user data.
+- **User Login**: Authenticate users by validating their credentials and managing their session securely.
+- **Public and Private API Endpoints**: Public endpoints for registration and login, and private endpoints for user-related operations.
+- **Secure Data Access**: Uses **Entity Framework Core** to interact with SQL Server for secure user data management.
+- **Blazor WebAssembly Frontend**: Frontend is developed using Blazor WebAssembly, enabling full-stack development with C#.
 
 ---
 
@@ -17,9 +19,9 @@ This project is a **User Registration and Login System** built using **Blazor**,
 ![Blazor](https://img.shields.io/badge/Blazor-512BD4?style=for-the-badge&logo=blazor&logoColor=white)
 ![ASP.NET Core](https://img.shields.io/badge/ASP.NET_Core-512BD4?style=for-the-badge&logo=.net&logoColor=white)
 ![Entity Framework Core](https://img.shields.io/badge/Entity_Framework_Core-512BD4?style=for-the-badge&logo=.net&logoColor=white)
+![SQL Server](https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
 
 ### Additional Technologies:
-![SQL Server](https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 
 ---
@@ -163,6 +165,7 @@ Acknowledgements:
 - **BCrypt**: For secure password hashing.
 - **Entity Framework Core**: ORM for .NET applications.
 - **Blazor**: For building interactive UIs with C#.
+- **ASP.NET Core Identity**: For user authentication and authorization.
 
 ---
 
@@ -174,5 +177,3 @@ For inquiries or support, feel free to open an issue on the repository or contac
 - **GitHub**: [@dilrukshax](https://github.com/dilrukshax)
 
 ---
-
-This updated version includes badges for the technologies used in the project, providing a more visually engaging and professional look. Let me know if you need further refinements!
