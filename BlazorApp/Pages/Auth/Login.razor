@@ -1,64 +1,60 @@
 ﻿@page "/Login"
 
+<div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="rounded border p-4" style="width: 400px;">
+        <h3 class="text-center">Login</h3>
+        <hr />
 
-<div class="mx-outo rounded border p-4" style ="width: 400px;margin: 60px;">
-	<h3 class="text-center">Login</h3>
-	<hr />
+        @if (error.Length > 0)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>@error</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
 
-	@if (error.Length > 0)
-	{
-		<div class="alert alert-danger alert-dismissible fade show" role="alert">
-			<strong>@error</strong>
-			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		</div>
-	}
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" @bind="email" />
+        </div>
 
-	<div class="mb-3">
-		<label for="email" class="form-label">Email</label>
-		<input type="email" class="form-control" id="email" @bind="email" />
-	</div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" @bind="password" />
+        </div>
 
-	<div class="mb-3">
-		<label for="password" class="form-label">Password</label>
-		<input type="password" class="form-control" id="password" @bind="password" />
-	</div>
-
-	<div class="row">
-		<div class="col d-grid">
-			<button class="btn btn-primary" @onclick="LoginAsync">Login</button>
-		</div>
-		<div class="col d-grid">
-			<a class="btn btn-outline-primary" href="/" role="button">
-				Cancel
-			</a>
-		</div>
-	</div>
-
-
-
+        <div class="row">
+            <div class="col d-grid">
+                <button class="btn btn-primary" @onclick="LoginAsync">Login</button>
+            </div>
+            <div class="col d-grid">
+                <a class="btn btn-outline-primary" href="/" role="button">
+                    Cancel
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
-
 
 @inject AuthenticationStateProvider provider
 @inject NavigationManager navManager
+
 @code {
-	public string email = "";
-	public string password = "";
-	public string error = "";
+    public string email = "";
+    public string password = "";
+    public string error = "";
 
-
-	private async Task LoginAsync()
-	{
-		var authStateProvider = (CustomAuthStateProvider)provider;
-		var formResult = await authStateProvider.LoginAsync(email, password);
-		if (formResult.Succeeded)
-		{
-			navManager.NavigateTo("/");
-		}
-		else
-		{
-			error = formResult.Error[0];
-		}
-		
-	}
+    private async Task LoginAsync()
+    {
+        var authStateProvider = (CustomAuthStateProvider)provider;
+        var formResult = await authStateProvider.LoginAsync(email, password);
+        if (formResult.Succeeded)
+        {
+            navManager.NavigateTo("/");
+        }
+        else
+        {
+            error = formResult.Error[0];
+        }
+    }
 }
